@@ -1,0 +1,21 @@
+int firstHighest, secondHighest, thirdHighest, firstLowest, secondLowest;
+        firstHighest=secondHighest=thirdHighest=firstLowest=secondLowest=arr[0];
+        for(int i: arr){
+            if(i>=firstHighest){
+                thirdHighest=secondHighest;
+                secondHighest=firstHighest;
+                firstHighest=i;
+            }
+            if(i<=firstLowest){
+                secondLowest=firstLowest;
+                firstLowest=i;
+            }
+        }
+        
+        int max=firstHighest*secondHighest*thirdHighest;
+        
+        if(firstLowest<0 && secondLowest<0 && firstHighest>=0){
+            int product=firstHighest*firstLowest*secondLowest;
+            if(product>max){ max=product; }
+        }
+        return max;
